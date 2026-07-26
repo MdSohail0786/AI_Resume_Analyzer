@@ -1,0 +1,18 @@
+# Dependency directories
+node_modules/
+bower_components/
+
+# Build and environment outputs
+dist/
+build/
+.env
+.env.local
+
+# Log files and caches
+*.log
+.eslintcache
+npm-debug.log*
+
+# System specific files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,12 @@
+import Analysis from "../models/Analysis.js";
+
+export const getHistory = async (req, res) => {
+  try {
+    const history = await Analysis.find({ userId: req.user.id }).sort({
+      createdAt: -1,
+    });
+    res.json(history);
+  } catch {
+    res.status(500).json({ message: "Error fetching history" });
+  }
+};
