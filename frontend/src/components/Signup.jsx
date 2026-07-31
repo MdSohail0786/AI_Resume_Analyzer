@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from "../utils/api";
 import { Link, useNavigate } from "react-router-dom";
 
 const Signup = ({ onLoginSuccess }) => {
@@ -18,7 +18,7 @@ const Signup = ({ onLoginSuccess }) => {
     if (formData.password.length < 6) return setError("Password must be at least 6 characters.");
     setLoading(true); setError("");
     try {
-      const res = await axios.post("/api/auth/register", formData);
+      const res = await api.post("/api/auth/register", formData);
       localStorage.setItem("token", res.data.token);
       onLoginSuccess({ email: res.data.email, name: res.data.name });
       navigate("/dashboard");
